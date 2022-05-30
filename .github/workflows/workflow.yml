@@ -1,0 +1,21 @@
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Automatic PR Generator Job
+    steps:
+      - name: Checkout Main Branch
+        uses: actions/checkout@v3
+
+      - name: Setup Java 11
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'corretto' # See 'Supported distributions' for available options
+          java-version: '11'
+
+      - name: Run Maven Dependency Tree
+        run: mvn dependency:tree -DoutputType=graphml -DoutputFile=dependency.graphml
+
+      - name: List Contents of Current Directory
+        run: ls -a
