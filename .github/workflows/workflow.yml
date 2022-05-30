@@ -22,3 +22,6 @@ jobs:
 
       - name: List ENV Varaiables
         run: env
+
+      - name: List PWD
+        run: pwd
