@@ -27,6 +27,6 @@ jobs:
         run: pwd
 
       - name: Comment Action Step 1
-        uses: /JanitSri/ga-jacoco-coverage@v1.11
+        uses: /JanitSri/ga-jacoco-coverage@v1.12
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
