@@ -15,7 +15,7 @@ jobs:
           java-version: '11'
 
       - name: Run Maven Dependency Tree
-        run: mvn dependency:tree -DoutputType=graphml -DoutputFile=dependency.graphml
+        run: mvn dependency:tree -DoutputType=txt -DoutputFile=dependency.txt
 
       - name: List Contents of Current Directory
         run: ls -a
