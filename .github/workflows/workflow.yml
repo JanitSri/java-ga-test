@@ -11,11 +11,11 @@ jobs:
       - name: Setup Java 11
         uses: actions/setup-java@v3
         with:
-          distribution: 'corretto' # See 'Supported distributions' for available options
+          distribution: 'corretto'
           java-version: '11'
 
       - name: Run Maven Dependency Tree
-        run: mvn dependency:tree -DoutputType=txt -DoutputFile=dependency.txt
+        run: mvn dependency:tree -DoutputType=graphml -DoutputFile=dependency.graphml
 
       - name: List Contents of Current Directory
         run: ls -a
@@ -26,7 +26,8 @@ jobs:
       - name: List PWD
         run: pwd
 
-      - name: Comment Action Step 1
-        uses: /JanitSri/ga-jacoco-coverage@v1.12
+      - name: Create PR
+        uses: /JanitSri/ga-jacoco-coverage@v1.13
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
+          filename: dependency.graphml
